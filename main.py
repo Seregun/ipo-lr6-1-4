@@ -3,15 +3,15 @@
 #- Находит и выводит все строки, которые содержат искомую подстроку, а также их количество из следующего файла.
 #- Сортирует найденные строки в порядке их длины (от самой короткой к самой длинной) и выводит их.
 
-file =  open("text.txt", 'r', encoding='utf-8') 
-lines = file.readlines() 
-search = input("Введите строку для поиска: ") 
-search = search.lower() 
-
-matching_lines = [line.strip() for line in lines if search in line.lower()]  
-print(f"\nКоличество строк, содержащих подстроку '{search}': {len(matching_lines)}") 
-
-matching_lines.sort(key=len) 
-print("\nСтроки, содержащие подстроку, отсортированные по длине:") 
-for line in matching_lines:
-    print(line)
+file =  open("text.txt", 'r', encoding='utf-8') # Открытие файла text.txt на чтение
+lines = file.readlines() # Считывание всех строк из файла
+search = input("Введите строку для поиска: ") # ЗАпрос ввода строки от пользователя
+search = search.lower() # Присвоение строки к переменной для поиска по нижнему регистру
+ 
+matching_lines = [line.strip() for line in lines if search in line.lower()]  # Нахождение строк, содержащих подстроку 
+print(f"\nКоличество строк, содержащих подстроку '{search}': {len(matching_lines)}") # Вывод кол-ва строк, содержащих подстроку
+ 
+matching_lines.sort(key=len) # Сортировка строк по длине
+print("\nСтроки, содержащие подстроку, отсортированные по длине:") # Вывод строк, содержащих строк, отсортированные по длине
+for line in matching_lines: 
+    print(line) 
